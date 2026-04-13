@@ -1,0 +1,8 @@
+.venv/
+outputs/
+__pycache__/
+*.egg-info/
+.DS_Store
+audit_*.txt
+key_mapping.json
+sweep_manifest.json
