@@ -1,0 +1,20 @@
+# configs/block1_all_heads_silenced.yaml
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A whimsical frog in a tailored suit riding a huge mouse with a leather saddle, holding a black top hat in one hand, watercolor illustration, meadow background with soft wildflowers and green grass, gentle daylight, playful storybook mood, fine brush textures, delicate paper grain, natural pastel color palette, clear subject focus, charming detailed character design, full body view, slightly low angle composition."
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: attn_head_scale
+    grid:
+      rows: heads
+    params:
+      block_type: double
+      stream: both
+      start_block: 1
+      end_block: 1
+      heads: [[0],[1],[2],[3],[4],[5],[6],[7],[8],[9],[10],[11],[12],[13],[14],[15],[16],[17],[18],[19],[20],[21],[22],[23]]
+      strength: -0.9

@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A majestic adult golden retriever with a thick lustrous honey-gold coat sitting serenely and perfectly still in the heart of a vast field of sunflowers at their peak late-summer bloom, each towering sunflower standing nearly as tall as the seated dog, their massive dark seed-heads surrounded by brilliant yellow ray petals reaching toward the sky, the warm late-afternoon golden hour sun bathes everything in the same honeyed amber tone as the dog's fur creating a beautiful monochromatic warmth that makes the animal seem to belong to the landscape, the dog's intelligent brown eyes are calm and attentive, tongue lolling happily to one side, a few loose sunflower petals drift lazily through the air nearby, background rows of sunflowers dissolve into smooth painterly bokeh with a medium telephoto lens, photorealistic rendering with natural film-like color science"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

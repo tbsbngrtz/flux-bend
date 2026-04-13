@@ -1,0 +1,14 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A breathtaking panoramic aerial view of a sprawling far-future megalopolis photographed at the exact magic moment of sunset, the sky above transitions in sweeping bands from deep indigo and violet at the zenith through vivid coral orange to a burning tangerine amber at the horizon, hundreds of colossal arcology towers of glass and structural carbon fiber rise kilometers into the sky their mirrored facades fragmenting the sunset light into cascading prismatic reflections, dozens of flying autonomous vehicles ranging from sleek single-occupant pods to enormous freight haulers trace glowing golden contrail lines across the urban airspace, stadium-sized holographic advertisements float between building clusters emitting cyan and magenta light, elevated skyway gardens of dense lush vegetation cling to tower facades at regular intervals, cyberpunk neon accents in electric teal and hot pink pulse from street level far below visible through the atmospheric haze"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.1, 0.25, 0.5, 2.0, 4.0, 5.0]

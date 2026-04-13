@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An intricate and breathtakingly detailed antique fantasy cartographic map of a fictional ancient continent rendered in the style of sixteenth-century European cartography with the warmth and aged beauty of an authentic manuscript, the coastlines are hand-drawn with the characteristic wobbly precision of early cartographic surveys, the interior landscape is populated with dozens of tiny exquisitely rendered illustrations including mountain ranges drawn in isometric profile with individual peaks, dense forests of miniature trees in varying tints of green, walled medieval city vignettes each unique, serpentine river systems labeled in spidery copperplate, compass rose of extraordinary elaborateness occupying the lower right ocean with 32 points and a decorative armillary sphere at its center, sea monsters and tall-masted galleons populate the surrounding ocean, the parchment has visible ageing including water stain rings, edge foxing, small worm holes, and a subtle warm sepia tonality throughout, all text in period-accurate gothic blackletter calligraphy"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

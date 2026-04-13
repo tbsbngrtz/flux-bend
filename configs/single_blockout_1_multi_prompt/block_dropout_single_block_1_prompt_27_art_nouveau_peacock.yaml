@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A sweeping full-height Art Nouveau decorative panel illustration in the ornamental style of Eugène Grasset and Théophile-Alexandre Steinlen depicting an impossibly magnificent peacock displaying its full iridescent tail fan across the entire width of the composition, each of the hundred individual eye feathers is rendered with meticulous botanical-illustration precision showing every iridescent barbule in shifting cobalt, emerald, gold and turquoise structural coloration, the peacock stands on an ornately carved stone balustrade entwined with climbing wisteria and morning glory vines whose sinuous organic curves echo and rhyme with the flowing tail plumage, in the background a tall elegant woman in a flowing Japoniste silk gown gazes out toward a distant garden through an arched window, the entire composition is unified by the signature Art Nouveau organic line vocabulary of whiplash curves and stylized natural forms, executed in a rich lithographic color palette of sage green, peacock teal, gold and deep purple"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

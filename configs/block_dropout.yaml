@@ -1,0 +1,18 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "a ceramic vase on a wooden table, soft window light"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9],
+                       [10], [11], [12], [13], [14], [15], [16], [17], [18], [19]]
+      scale: 0.0
+      target: all

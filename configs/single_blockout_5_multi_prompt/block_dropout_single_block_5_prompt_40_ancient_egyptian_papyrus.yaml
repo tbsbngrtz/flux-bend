@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A spectacular ancient Egyptian papyrus illustration executed with complete archaeological authenticity in the tradition of the Book of the Dead and the funerary papyri of the New Kingdom Eighteenth Dynasty, the composition depicts the Weighing of the Heart ceremony from the Hall of Two Truths showing the jackal-headed god Anubis leading the deceased before the scales of divine judgment, on one pan of the golden balance scales rests the heart of the deceased rendered as a red heart-shaped vessel while on the other pan sits the feather of Ma'at in delicate white and gold, the god Thoth with his ibis head stands to one side recording the outcome on a scribal palette, the composite monster Ammit part lion part hippopotamus part crocodile waits below with visible anticipation, behind the deceased stands a protective deity, the forty-two assessor gods line the upper register as small enthroned figures each clearly individualized by headdress and attribute, the entire scene uses the canonical Egyptian flat profile figure system with hierarchical scaling, the authentic mineral pigment palette of ochre, turquoise blue-green, ivory and lamp black on a warm cream papyrus texture ground"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A spectacular and intricately detailed illustration rendered in the visual language of Gothic cathedral stained glass design depicting the full-height lancet window composition of a legendary Tree of Jesse, the genealogical tree of Christ rises from the reclining figure of Jesse at the base, its branches dividing and subdividing to support fourteen crowned ancestors of the Old Testament each shown in individual medallion panels of jewel-colored glass, the central column leads to the Virgin enthroned at the apex within a pointed Gothic trefoil arch, every panel is separated by dense black leading lines that simultaneously define the pictorial forms and create intricate geometric patterns, the glass colors glow with supernatural intensity in deep ruby red, sapphire blue, golden amber, emerald green and violet, each figure is rendered with the characteristic Byzantine rigidity and frontality of medieval glass painting tradition, the surrounding architecture of stone tracery, cusped arches and geometric rose windows frames the entire composition, the light appears to come from behind as if actually backlit"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

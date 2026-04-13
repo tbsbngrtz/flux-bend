@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A richly painted fairy tale illustration in the lush detailed style of Arthur Rackham and Edmund Dulac depicting a enchanted forest clearing deep in a primeval wood at the blue hour of twilight where a tiny impossibly quaint cottage glows amber from within its crooked windows, the cottage is of clearly magical construction with a roof of living moss and mushrooms that curves organically as if grown rather than built, climbing roses and ivy of supernatural lushness cover every wall, the enormous ancient oak trees surrounding the clearing have become sentient their bark forming watchful aged faces and their roots emerging from the earth as gnarled feet, enormous luminescent mushrooms dot the clearing floor in rings, three small lights float between the trees suggesting fairy presences, a cobblestone path winds toward the cottage door catching the warm light from the windows, the entire illustration is rendered in the characteristic Rackham technique of pen-and-ink underdrawing with fluid watercolor washes of extraordinary delicacy in deep forest greens, ochres and warm amber"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

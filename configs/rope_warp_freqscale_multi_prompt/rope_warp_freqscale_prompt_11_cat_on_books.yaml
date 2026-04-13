@@ -1,0 +1,14 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A small plump ginger tabby cat with a magnificently striped coat curled into a perfect tight crescent moon sleeping soundly on the flat top surface of an impressively precarious tower of old hardcover books stacked on a wide age-darkened oak library table, the books' cloth-bound spines display faded colors of burgundy, forest green, navy blue and tan with gilded lettering, an antique brass banker's lamp fitted with a beveled green glass shade sits to one side casting pools of warm amber light that makes the sleeping cat's fur glow like smoldering embers and picks out the gilt lettering on the book spines, a heavily worn leather wingback reading chair is just barely visible at the left edge of frame, floor-to-ceiling shelves densely packed with hundreds more books plus loose rolled manuscripts and paper bookmarks recede into the background, intimate cozy academic atmosphere, shallow focus documentary photography"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.1, 0.25, 0.5, 2.0, 4.0, 5.0]

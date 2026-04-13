@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An extraordinarily elaborate and heraldically correct coat of arms illustration in the tradition of the great German armorials and the work of court herald artists of the sixteenth century, the central shield is divided per quarterly with four distinct blazoned fields containing a golden lion rampant on gules, three silver fleurs-de-lis on azure, an eagle displayed sable on or, and a ship under full sail on a barry wavy field of blue and silver, the shield is supported by two magnificently rendered beasts a crowned male lion on the dexter and a sea-dragon on the sinister each shown with extraordinary anatomical and heraldic detail, above the shield rests a great tournament helm of the closed-visor type draped with an elaborate mantling of crimson and gold foliage, the crest atop the helm is a phoenix rising from flames, a riband below bears the motto in gothic blackletter, the entire composition is surrounded by an architectural border of carved Renaissance ornament in the Mannerist style, rendered in the precise flat color system of heraldic illumination with heavy gold leaf throughout"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

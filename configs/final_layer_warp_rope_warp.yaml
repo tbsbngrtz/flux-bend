@@ -1,0 +1,20 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A whimsical frog in a tailored suit riding a huge mouse with a leather saddle, holding a black top hat in one hand, watercolor illustration, meadow background with soft wildflowers and green grass, gentle daylight, playful storybook mood, fine brush textures, delicate paper grain, natural pastel color palette, clear subject focus, charming detailed character design, full body view, slightly low angle composition."
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: final_layer_warp
+    grid:
+      rows: permutation
+    params:
+      target: channel_permute
+      permutation: ["reverse", "shift-32", "shift-64"]
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.5, 2.0, 5.0]

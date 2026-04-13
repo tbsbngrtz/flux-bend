@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A sleek cherry-red Italian sports car with a long sculpted hood and wide aggressive stance, its immaculately polished bodywork reflecting the neon-drenched urban environment surrounding it, parked along a glistening wet cobblestone city street deep in the rainy night, heavy rainfall creates mirror-perfect reflections of electric blue and magenta neon signs advertising ramen bars and convenience stores in kanji script along the entire length of the wet asphalt, puddles ripple outward in expanding rings in the gutter catching shattered fragments of light, thin wisps of steam rise lazily from a nearby manhole cover, the car's aggressive low-slung silhouette casts dramatic hard-edged shadows under harsh orange sodium streetlamps, rain-blurred bokeh of distant headlights and taillights stretches endlessly into the misty urban depth, shot with a fast wide aperture lens, cinematic night photography with high contrast and rich saturated neons"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

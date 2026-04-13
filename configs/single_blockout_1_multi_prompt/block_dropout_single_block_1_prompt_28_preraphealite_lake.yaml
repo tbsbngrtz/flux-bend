@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A large-format Pre-Raphaelite Brotherhood oil painting composition depicting the Lady of the Lake from Arthurian legend emerging from the glassy still surface of a midnight forest tarn, her long auburn hair fans out across the dark water surface in Pre-Raphaelite fashion, her arm raised above the surface holding aloft the sword Excalibur whose blade catches a supernatural silver light from an unseen source illuminating the entire watery scene, she wears robes of deep peacock blue and forest green that blend into the water around her, the forest enclosing the lake is painted with the obsessive Pre-Raphaelite attention to botanical accuracy with every leaf, moss patch, fern and water lily rendered in extraordinary detail in the manner of John Everett Millais and William Holman Hunt, the mood is one of supernatural stillness and enchantment, moonlight filters through the canopy in ghostly silver beams, painted with the characteristic jewel-like color intensity of the Pre-Raphaelite palette"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

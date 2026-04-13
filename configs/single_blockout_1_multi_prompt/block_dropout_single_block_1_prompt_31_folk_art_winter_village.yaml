@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A richly detailed Scandinavian folk art illustration in the tradition of Carl Larsson and the Dala painting tradition depicting a charming snow-covered Nordic village on the longest night of winter during the festival of St Lucia, viewed from a elevated perspective that reveals the entire village layout, a dozen traditional red timber farmhouses with steep snow-laden roofs surround a frozen village pond on which children skate in a chain, the village Christmas tree is ablaze with real candles casting amber light on the snow, a procession of girls in white gowns with candle crowns winds through the main street, horses in decorated harnesses pull painted wooden sleighs loaded with pine boughs, the frozen pond and snow surfaces are painted with the characteristic Scandinavian folk art technique of flat bright color with simple decorative stroke textures, stylized trees heavy with snow frame the edges, the border is decorated with traditional rosemaling scrollwork flowers in red blue and gold on a forest green ground"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

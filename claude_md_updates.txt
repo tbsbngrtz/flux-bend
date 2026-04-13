@@ -1,0 +1,72 @@
+### Tensor key patterns (double-stream)
+
+5 double-stream blocks (indices 0–4), 16 weight tensors per block.
+All weights are bf16, no biases.
+
+| Sub-key | Shape | Description |
+|---|---|---|
+| `transformer_blocks.N.attn.add_k_proj.weight` | (3072, 3072) | Text stream key projection |
+| `transformer_blocks.N.attn.add_q_proj.weight` | (3072, 3072) | Text stream query projection |
+| `transformer_blocks.N.attn.add_v_proj.weight` | (3072, 3072) | Text stream value projection |
+| `transformer_blocks.N.attn.norm_added_k.weight` | (128,) | RMSNorm on text keys |
+| `transformer_blocks.N.attn.norm_added_q.weight` | (128,) | RMSNorm on text queries |
+| `transformer_blocks.N.attn.norm_k.weight` | (128,) | RMSNorm on image keys |
+| `transformer_blocks.N.attn.norm_q.weight` | (128,) | RMSNorm on image queries |
+| `transformer_blocks.N.attn.to_add_out.weight` | (3072, 3072) | Text stream attention output |
+| `transformer_blocks.N.attn.to_k.weight` | (3072, 3072) | Image stream key projection |
+| `transformer_blocks.N.attn.to_out.0.weight` | (3072, 3072) | Image stream attention output |
+| `transformer_blocks.N.attn.to_q.weight` | (3072, 3072) | Image stream query projection |
+| `transformer_blocks.N.attn.to_v.weight` | (3072, 3072) | Image stream value projection |
+| `transformer_blocks.N.ff.linear_in.weight` | (18432, 3072) | Image MLP up-proj (SwiGLU, out = 2 × 9216) |
+| `transformer_blocks.N.ff.linear_out.weight` | (3072, 9216) | Image MLP down-proj (9216 → 3072) |
+| `transformer_blocks.N.ff_context.linear_in.weight` | (18432, 3072) | Text MLP up-proj (SwiGLU, out = 2 × 9216) |
+| `transformer_blocks.N.ff_context.linear_out.weight` | (3072, 9216) | Text MLP down-proj (9216 → 3072) |
+
+Note: Unlike the 9B model, double-block attention is NOT fused — Q/K/V are separate projections.
+Text stream uses `add_q_proj`/`add_k_proj`/`add_v_proj` (not `to_add_q`/`to_add_k`/`to_add_v`).
+
+### Tensor key patterns (single-stream)
+
+20 single-stream blocks (indices 0–19), 4 weight tensors per block.
+
+| Sub-key | Shape | Description |
+|---|---|---|
+| `single_transformer_blocks.N.attn.norm_k.weight` | (128,) | RMSNorm on keys |
+| `single_transformer_blocks.N.attn.norm_q.weight` | (128,) | RMSNorm on queries |
+| `single_transformer_blocks.N.attn.to_out.weight` | (3072, 12288) | Fused attn+MLP output (3072 attn + 9216 MLP = 12288) |
+| `single_transformer_blocks.N.attn.to_qkv_mlp_proj.weight` | (27648, 3072) | Fused QKV+MLP input (9216 QKV + 18432 MLP = 27648) |
+
+Fused projection layout:
+- `to_qkv_mlp_proj` output dim 27648: first 9216 = QKV (3072 Q + 3072 K + 3072 V), remaining 18432 = MLP input (SwiGLU gated, 2 × 9216)
+- `to_out` input dim 12288: first 3072 = attention output, remaining 9216 = MLP output
+
+### Non-block tensors (embedders, final layer, modulation)
+
+| Key | Shape | Description |
+|---|---|---|
+| `context_embedder.weight` | (3072, 7680) | Text encoder output → hidden dim ((3072, 7680)) |
+| `double_stream_modulation_img.linear.weight` | (18432, 3072) | Shared img modulation for all 5 double blocks |
+| `double_stream_modulation_txt.linear.weight` | (18432, 3072) | Shared txt modulation for all 5 double blocks |
+| `norm_out.linear.weight` | (6144, 3072) | Final AdaLN modulation |
+| `proj_out.weight` | (128, 3072) | Final projection to latent patch space |
+| `single_stream_modulation.linear.weight` | (9216, 3072) | Shared modulation for all 20 single blocks |
+| `time_guidance_embed.timestep_embedder.linear_1.weight` | (3072, 256) | Timestep embedder |
+| `time_guidance_embed.timestep_embedder.linear_2.weight` | (3072, 3072) | Timestep embedder |
+| `x_embedder.weight` | (3072, 128) | Latent input projection (128 → 3072) |
+
+### Diffusers key mapping
+
+The Klein 4B safetensors file uses **diffusers-format keys directly**.
+Raw key = diffusers key (identity mapping). No remapping needed.
+
+This is different from the 9B model which uses BFL-format keys like `double_blocks.N.img_mlp.0.weight`
+that diffusers remaps to `transformer_blocks.N.ff.linear_in.weight` during loading.
+
+Since `flux-bend` operates at the safetensors level, we can use diffusers attribute paths directly
+as tensor keys — no translation layer needed.
+
+### Transformer safetensors file structure
+
+Single file (not sharded): `transformer/diffusion_pytorch_model.safetensors` (7392.0 MB)
+
+169 tensors, 3,875,544,576 parameters (3.88B), all bf16, no biases.

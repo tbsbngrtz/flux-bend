@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A dramatic vintage natural history scientific illustration plate in the tradition of Ernst Haeckel's Kunstformen der Natur depicting a spectacular collection of deep-sea bioluminescent organisms arranged in a formal compositional study against a deep midnight blue-black ocean background, the central specimen is a colossal Vampyroteuthis infernalis vampire squid with all ten arm-filaments fully extended and every chromatophore detail rendered, surrounded by radiolaria of extraordinary geometric crystal complexity, siphonophore colonial organisms trailing forty meters of specialized zooids, a lanternfish with its photophore organs mapped in luminous blue-green, multiple species of ctenophore comb jellies trailing iridescent cilia, each organism is labeled with Haeckel-style copperplate Latin nomenclature, the entire plate is rendered in Haeckel's characteristic combination of precise scientific illustration with an irresistible tendency toward decorative symmetry and aesthetic arrangement, luminous bioluminescent blues and greens against black"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

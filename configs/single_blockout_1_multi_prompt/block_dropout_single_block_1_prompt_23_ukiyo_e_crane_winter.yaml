@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A masterful Japanese ukiyo-e woodblock print composition in the style of Hiroshige and Hokusai depicting a pair of elegant red-crowned cranes standing at the frozen edge of a snowbound mountain stream at the depth of winter, one crane stands with wings fully outstretched in a formal display pose its feathers rendered in extraordinary flat graphic detail, the other bends its long neck gracefully to the icy water below, a monumental snow-laden pine tree dominates the upper right quadrant its heavy boughs pressing downward under the weight of fresh snow, the Fuji silhouette is just visible as a faint pale grey form above a distant blue mountain range, the entire image uses the pure flat color woodblock aesthetic with crisp black keyblock outlines, indigo blue sky gradients, warm golden ochre grasses and the characteristic prussian blue of Hiroshige's skies, bordered by a traditional decorative cartouche with Japanese calligraphy title and artist seal in red"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

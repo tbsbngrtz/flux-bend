@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An exquisitely detailed Art Nouveau illustrated panel in the unmistakable decorative style of Alphonse Mucha depicting a graceful young woman in three-quarter profile with classically idealized facial features framed by elaborate flowing auburn hair coiled and adorned with an organic crown of intertwined morning glory tendrils, delicate lily of the valley, and small roses, her flowing garment rendered in swirling organic folds, she is surrounded by a magnificent elaborate architectural border of sinuous climbing wisteria vines, magnolia and cherry blossom branches all rendered with extraordinary botanical precision and decorative formalization, the color palette employs muted gold leaf, soft sage green, dusty blush rose, ivory cream and pale lavender with subtle watercolor wash luminosity, an elegant circular golden aureole halo frames the figure's head, highly detailed geometric and floral ornamental panels fill the upper corners and lower margin"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

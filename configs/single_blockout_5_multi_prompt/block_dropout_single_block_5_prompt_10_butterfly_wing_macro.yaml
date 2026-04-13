@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An extreme ultra-close macro photograph of a Morpho butterfly wing surface captured at near-microscopic magnification revealing the extraordinary nano-architecture of individual scales arranged in precise overlapping chevron rows like iridescent ceramic roof tiles on a cathedral, the structural coloration produces a spectacular electric cobalt blue that shifts through deep teal and luminous indigo to rich violet as viewing angle varies, each individual scale clearly shows its complex ribbed and latticed surface texture and the tiny hooked attachment point securing it to the translucent wing membrane beneath, the dense branching network of wing veins provides elegant organic geometric structure to the overall composition, ultra-shallow depth of field progressively dissolves the background into a beautifully abstract impressionistic wash of warm complementary amber and gold tones, soft diffused natural studio light eliminating harsh reflections, absolute maximum optical resolution macro photography"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

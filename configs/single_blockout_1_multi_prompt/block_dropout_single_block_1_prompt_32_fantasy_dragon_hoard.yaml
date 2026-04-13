@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A breathtakingly detailed fantasy illustration in the painterly style of classic Dungeons and Dragons and Michael Whelan cover art depicting a colossal ancient red dragon of formidable size and absolute authority resting atop the accumulated treasure hoard of ten centuries of systematic plunder in an enormous cathedral-scale underground volcanic cavern, the dragon itself is a masterpiece of scale and anatomical conviction its body covered in thousands of individually rendered overlapping scales of deep crimson and volcanic orange that transition to pale gold on the underbelly, a wisp of incandescent flame escapes from between its teeth, its enormous amber eyes with vertical slit pupils regard the viewer with ancient contemptuous intelligence, the treasure hoard beneath it contains thousands of individually rendered gold coins, jeweled crowns, ancient armor, carved idols, magical staves and gemstones that catch the volcanic firelight in a thousand colors, stalactites and glowing magma cracks in the cavern walls provide dramatic backlighting"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

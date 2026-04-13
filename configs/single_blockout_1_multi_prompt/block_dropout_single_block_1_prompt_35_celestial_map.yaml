@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A majestic and breathtakingly detailed vintage astronomical celestial hemisphere map in the tradition of the seventeenth-century planispheres of Andreas Cellarius's Harmonia Macrocosmica, depicting the complete northern celestial hemisphere in a circular polar projection, each of the 48 classical constellations is illustrated as a magnificently detailed mythological figure drawn in the baroque engraving style with full anatomical musculature and flowing drapery, Orion the Hunter stands with club raised and lion skin shield displaying individual stars as jewels set in his belt, a spectacular dragon encircles the pole, the Milky Way is rendered as a dense cloud of individually stippled stars, the border of the map is an elaborate baroque frame populated with putti, astronomical instruments including armillary spheres and quadrants, portrait medallions of famous astronomers from Ptolemy to Tycho Brahe, the entire image is colored in the characteristic hand-colored engraving palette of pale gold, soft blue, dusty rose and verdigris with burnished gold accents on every star"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

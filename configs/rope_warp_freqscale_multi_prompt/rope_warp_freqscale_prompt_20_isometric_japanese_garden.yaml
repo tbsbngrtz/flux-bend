@@ -1,0 +1,14 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A meticulously crafted isometric pixel art scene rendered at high resolution with extraordinary fine detail depicting a perfectly composed miniature traditional Japanese zen garden viewed from an elevated three-quarter isometric angle, at the center a tranquil koi pond contains three large ornamental koi in vermilion orange with white markings, pure white with black spots and shimmering gold, all visible through the crystalline water showing the sandy bottom, a single magnificent weeping cherry blossom tree in absolute peak bloom stands at the water's edge its cascading branches heavy with dense clusters of soft pink flowers dropping individual petals that drift and float on the pond surface and across the carefully raked white gravel Karesansui garden, a tall traditional stone lantern sits on a mossy plinth casting warm amber light in the gathering dusk, hand-laid stepping stones of irregular natural rock lead to a small wooden tea house pavilion with gracefully curved tile roof"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.1, 0.25, 0.5, 2.0, 4.0, 5.0]

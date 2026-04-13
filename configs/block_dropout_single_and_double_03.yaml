@@ -1,0 +1,26 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt:  "block_importance_double_and_single_mouseA solitary figure draped in a deep crimson cloak stands at the center of this breathtaking fantasy landscape, staff in hand, gazing out toward a vast and luminous world stretching before them. They are viewed entirely from behind, hooded and still, dwarfed by the colossal grey cliff face that dominates the left side of the composition — its smooth, vertically fractured rock face soaring far beyond the frame, with sparse pine trees clinging to its narrow ledges and loose boulders tumbled at its base. The foreground is lush with tall golden-amber grasses swaying in an implied breeze, catching warm light and framing the scene with an autumnal richness, while a narrow dirt trail winds from beneath the viewer's feet and curves gently away into the open distance. That distance opens into a sweeping coastal plain, where a great body of water — a sea or vast lake — shimmers silver-blue on the horizon, flanked by faint mountain silhouettes suggesting a dramatic fjord-like geography. Above, the sky is a deep, saturated cobalt blue filled with towering cumulonimbus clouds rendered in brilliant white and soft grey, and a crescent moon hangs serenely in the upper right, glowing even in the daylit sky. A flock of white birds — seabirds or doves — spirals upward from the cliff top in a sweeping, dynamic arc, scattering across the blue like brushstrokes. The entire image radiates a mood of epic solitude and romantic wonder, reminiscent of Caspar David Friedrich's sublime landscapes translated into modern fantasy concept art, with warm golden earth tones playing in beautiful contrast against the cool stone and the vast, open sky."
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: double
+      block_indices: [[0], [1], [2], [3], [4]]
+      scale: 0.0
+      target: all
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[0], [1], [2], [3], [4], [5], [6], [7], [8], [9],
+                       [10], [11], [12], [13], [14], [15], [16], [17], [18], [19]]
+      scale: 0.0
+      target: all

@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An exquisitely detailed Victorian-era botanical illustration plate rendered in the tradition of the great natural history artists Pierre-Joseph Redouté and Georg Dionysius Ehret, depicting a rare and spectacular Amazonian carnivorous pitcher plant Nepenthes rajah with every anatomical structure rendered in meticulous scientific accuracy, the main subject fills the composition with its dramatic crimson and chartreuse mottled pitcher vessel shown in cross-section revealing the digestive fluid within, curling tendrils spiral outward in mathematically precise coils, leaves are shown from multiple angles including detailed vignette studies of the lid hinge mechanism and gland structures, the color palette uses transparent watercolor washes of verdigris green, wine red, ivory and pale gold on aged cream cartridge paper with visible laid paper texture, fine copperplate engraving-style linework defines every vein and surface texture, a hand-lettered Latin species inscription in elegant copperplate script sits at the bottom margin with a decorative cartouche border of entwined vines and small insects"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

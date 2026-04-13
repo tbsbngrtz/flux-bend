@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A single perfect Fuji apple of vivid arterial red with faint gold undertones sits precisely centered on a cold slab of polished white Carrara marble veined with thin grey mineral lines, a single dramatic shaft of raking natural light enters from stage left at a low angle creating a sharp bright highlight that traces the apple's shoulder before transitioning into a rich deep shadow zone on the right, a perfectly formed soft penumbra shadow pools on the marble surface to the right and slightly behind the apple, its stem is slightly bent and twisted, an impossibly small water droplet clings to the apple's base where it meets the marble, the background dissolves into a deep neutral charcoal grey vignette, rendered as fine art still life photography in the tradition of Irving Penn and Edward Weston, tack-sharp focus throughout the subject, full dynamic range, no digital manipulation beyond natural tonal development"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

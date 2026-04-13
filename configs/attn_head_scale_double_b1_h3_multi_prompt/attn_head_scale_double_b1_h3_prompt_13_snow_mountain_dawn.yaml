@@ -1,0 +1,19 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A sublime alpine landscape photograph of a soaring snow-covered peak rising dramatically above a sea of clouds in the profound stillness of pre-dawn first light, the sky above transitions in smooth gradients from the deep midnight indigo of departing night through delicate bands of lilac and dusty rose to a vivid saturated tangerine orange smouldering at the horizon where the sun is about to crest, the summit ridgeline and upper snowfields are already catching the very first warm pink light in breathtaking contrast against the cold blue-violet shadows filling the wind-sculpted cornices and crevasses, the middle ground shows a perfectly flat frozen alpine lake whose mirror surface reflects the entire color spectacle above with uncanny fidelity, craggy dark schist rock outcrops push through the snowfields in the immediate foreground their lichen-spotted surfaces catching the first warmth, professional landscape photography with maximum dynamic range and extraordinary color fidelity"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: attn_head_scale
+    grid:
+      rows: strength
+    params:
+      block_type: double
+      stream: both
+      start_block: 1
+      end_block: 1
+      heads: [[3]]
+      strength: [0.3, 0.5, 0.7, 1.0, 1.3, 1.5, 1.7, 2.0, 2.5, 3.0]

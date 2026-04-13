@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "Two children, a girl of approximately eight in a yellow sundress and a younger boy of around six in a striped swimsuit, both completely absorbed in the joyful collaborative construction of an impressively elaborate sandcastle on a wide gently sloping beach during the sublime last hour before sunset, the older girl carefully presses a perfectly shaped cone shell into one of the castle's tall turrets while the boy watches with absolute focused concentration, the castle itself has grown organically complex with multiple stepped towers, a carefully dug moat now filling slowly with seeping water, a drawbridge fashioned from two flat pieces of smooth driftwood, and shell-decorated walls, the entire scene is saturated in a warm amber-gold magic hour light casting long shadows across the damp rippled sand, the children's hair is tousled gently by a sea breeze, candid unposed photojournalism style capturing pure authentic childhood wonder"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A spectacular vintage travel poster illustration in the bold graphic Art Deco style of the 1930s Compagnie Générale Transatlantique and PLM railway poster tradition, depicting the eternal magic of Venice at golden dusk, the composition is organized around a dramatic perspective view down the Grand Canal from the Rialto Bridge with the domes of the Salute church floating in the middle distance, gondoliers in striped shirts pole their sleek black gondolas through the amber-stained water that perfectly mirrors the glowing sky, the color palette uses the compressed flat hue relationships of lithographic screen printing with no more than six distinct colors, ultramarine blue sky, warm gold and amber reflections, gondola black, venetian red architecture and white highlights, the poster text VENEZIA is set in an elegant elongated Art Deco typeface in white at the top, additional period-accurate decorative typography at the bottom in French and Italian, the entire image has the graphic punch and elegant simplification that defined the golden age of travel poster design"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

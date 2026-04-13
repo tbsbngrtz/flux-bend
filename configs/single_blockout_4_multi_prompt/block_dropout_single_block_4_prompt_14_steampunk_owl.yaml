@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A breathtakingly ornate and mechanically intricate steampunk clockwork owl perched with perfect poise on an enormous antique brass gear that serves as its elaborate throne, the owl's entire form is constructed from complex nested clockwork mechanisms including spinning gyroscope eyes of clear glass containing tiny moving armillary spheres, a chest cavity enclosed behind a convex clock-face window that reveals a miniature working orrery of planetary gears turning within, its feathers rendered as hundreds of individually articulated overlapping plates of acid-etched bronze and hammered copper decorated with Victorian filigree scroll patterns, small exposed pneumatic pistons drive the half-extended jointed wings, a thin wisp of white steam vents from a tiny exhaust port near its tail, the entire sculpture rendered in warm oxidized copper green, aged brass gold and polished bronze highlight tones, photographed against pure black, dramatic single-source spotlight illumination"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

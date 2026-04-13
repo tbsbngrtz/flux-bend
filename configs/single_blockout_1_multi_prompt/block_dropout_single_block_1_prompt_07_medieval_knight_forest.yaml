@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A lone medieval knight in flawlessly crafted Gothic full plate armor of burnished mirror-polished steel embossed with engraved heraldic lion motifs stands absolutely still with visor fully closed, both gauntleted hands resting on the crossguard of a great sword held point-down before him in a formal guard stance, he stands in the heart of an ancient primeval forest of enormous gnarled oak trees whose massive serpentine roots emerge from dark moss-covered earth like the fingers of buried giants, the pre-dawn mist is dense rolling in slowly between the trees, the knight's entire armor surface is beaded with tiny moisture droplets from the fog, cold cinematic blue shaft-light pierces the forest canopy illuminating hanging curtains of mist in dramatic volumetric columns, the atmosphere is one of absolute stoic readiness and imminent medieval confrontation, digital painting with meticulous material rendering and cinematic composition"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

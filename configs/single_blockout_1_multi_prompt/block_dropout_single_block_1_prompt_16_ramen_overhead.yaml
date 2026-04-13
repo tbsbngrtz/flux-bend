@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A generously filled bowl of rich creamy tonkotsu ramen photographed from directly overhead in a perfectly composed flat lay, the cloud-white pork bone broth is partially visible beneath the arranged toppings including two perfect slices of melt-tender chashu pork belly displaying their characteristic concentric pink and ivory cross-section pattern, one soft-boiled soy-marinated egg sliced cleanly in half revealing a precisely jammy amber yolk at exactly the right consistency, a generous portion of springy ramen noodles coiled beneath the surface, a rectangular sheet of toasted black nori standing slightly at an angle, a generous cluster of thin-sliced crisp spring onions fanning out across the bowl, a pinch of white and black sesame seeds, fragrant aromatic steam rises in delicate lazy spirals from the hot broth surface catching the overhead studio light, bamboo chopsticks rested across the lip of a handmade ceramic bowl with irregular edges, dark textured slate surface background"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

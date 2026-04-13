@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A richly detailed illuminated manuscript page in the tradition of the Très Riches Heures du Duc de Berry, depicting a magnificent medieval feast inside a great Gothic hall, the composition uses the flattened perspective and hierarchical scaling of fourteenth-century Flemish manuscript illumination, nobles in sumptuous fur-trimmed robes of ultramarine and crimson sit at a long banquet table laden with elaborate gold plate and exotic foods, court jesters and musicians perform at the margins of the scene, the surrounding page borders are covered in an intricate dense network of interlacing acanthus vine in burnished gold leaf from which emerge tiny naturalistically rendered animals including rabbits, songbirds, dragonflies and a snail, deep lapis lazuli blue and vermilion dominate the palette, every architectural detail of the vaulted ceiling and heraldic tapestries is rendered with astonishing miniaturist precision, the entire surface glows as if lit from within by actual gold leaf"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

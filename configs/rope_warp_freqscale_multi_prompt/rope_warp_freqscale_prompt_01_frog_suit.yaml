@@ -1,0 +1,14 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A whimsical anthropomorphic frog dressed in a perfectly tailored charcoal-grey three-piece suit with polished gold buttons and a crisp white shirt, perched atop a magnificently oversized house mouse wearing a hand-stitched saddle of genuine brown leather complete with brass stirrups and ornate engraved buckles, the frog holds a sleek black silk top hat aloft in one outstretched hand with aristocratic flair while the other grips leather reins with practiced ease, both characters are rendered with expressive personality in a lush wet-on-wet watercolor illustration style, the background depicts a sun-drenched summer meadow filled with delicate wildflowers including lavender, white daisies, yellow buttercups and Queen Anne's lace swaying gently in a warm breeze, soft dappled light filters through distant cumulus clouds creating a dreamlike storybook atmosphere, children's picture book illustration quality, warm pastel color palette, charming and whimsical"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.1, 0.25, 0.5, 2.0, 4.0, 5.0]

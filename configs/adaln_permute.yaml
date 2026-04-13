@@ -1,0 +1,16 @@
+# configs/adaln_permute.yaml
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A whimsical frog in a tailored suit riding a huge mouse with a leather saddle, holding a black top hat in one hand, watercolor illustration, meadow background with soft wildflowers and green grass, gentle daylight, playful storybook mood, fine brush textures, delicate paper grain, natural pastel color palette, clear subject focus, charming detailed character design, full body view, slightly low angle composition."
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: adaln_permute
+    grid:
+      rows: permutation
+    params:
+      target: double
+      permutation: ["1-0-2-3-4-5", "0-1-2-5-4-3", "3-4-5-0-1-2", "2-1-0-5-4-3", "0-2-1-3-5-4", "5-4-3-2-1-0"]

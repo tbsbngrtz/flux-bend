@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An elaborately detailed alchemical philosophical diagram illustration in the tradition of seventeenth-century hermetic manuscripts such as the Splendor Solis and Rosarium Philosophorum, the central emblem depicts the Rebis the divine hermaphrodite standing atop a winged dragon holding the sun and moon simultaneously, surrounded by seven concentric rings each representing a planetary sphere filled with alchemical symbols, elemental glyphs and transformation diagrams, the four classical elements are personified as robed figures at the cardinal corners of the composition, the background ground is divided into the four realms of matter from prima materia at the bottom to the philosopher's stone at the apex, elaborate decorative borders frame the entire composition in a style combining Gothic architecture with Renaissance ornament, the color palette is restricted to aged parchment tones with accents of alchemical red sulfur, silver mercury, gold solar yellow and philosophical blue, hand-lettered hermetic Latin inscriptions in elaborate calligraphy fill the remaining space"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

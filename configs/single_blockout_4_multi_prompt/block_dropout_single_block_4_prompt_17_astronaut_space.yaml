@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A lone astronaut in a next-generation EVA suit of brilliant optical white with gold-tinted polycarbonate visor floating weightlessly in the absolute void of low Earth orbit secured by a single coiled safety tether cable, the enormous curved limb of Earth fills the entire lower half of the frame displaying the extraordinary visual drama of continents and cobalt ocean visible through swirling white weather systems from above, the impossibly thin luminous blue arc of the atmosphere glows at the horizon in a perfect iridescent halo, the astronaut's reflective gold visor captures a curved distorted reflection of Earth and the distant spacecraft behind them, the sun blazes with unfiltered intensity just outside the upper frame edge creating razor-sharp harsh terminator lighting on one perfectly illuminated side of the suit with the other half in absolute jet black shadow, the dense star field behind is crisp and undistorted, photorealistic rendering with physically accurate space environment lighting"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

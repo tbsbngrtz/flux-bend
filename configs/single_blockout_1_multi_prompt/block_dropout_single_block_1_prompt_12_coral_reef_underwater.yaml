@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A breathtaking wide-angle underwater photograph of a pristine tropical coral reef ecosystem thriving in perfect health, the coral formations include massive domed brain corals with their intricate labyrinthine surface texture, towering branching staghorn corals in pale azure and gold, and undulating colonies of soft fan corals in deep crimson and violet swaying in the gentle current, dense schools of iridescent sergeant major fish and neon-bright clownfish dart through waving sea anemone tentacles in orange and white, a large ancient green sea turtle glides serenely through the mid-ground of the composition, the water clarity is extraordinary with horizontal visibility extending well beyond twenty meters in deep sapphire blue, dramatic crepuscular rays of tropical midday sunlight descend from the shimmering quicksilver surface above casting complex dancing caustic light patterns across every surface of the reef, extraordinarily rich saturated colors throughout"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

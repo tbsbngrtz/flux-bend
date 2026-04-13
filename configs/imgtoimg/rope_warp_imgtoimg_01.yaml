@@ -1,0 +1,15 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+image: ../../input/hand-on-shoulder-meme.png
+prompt: "A still from a vintage 1970s Japanese anime series, classic retro cel animation style with thick black outlines, flat muted colors, and visible screen-tone shading. Three male characters are shown in a tense close-quarters scene outdoors with a blurred green tree background. In the foreground left, a tall broad-shouldered young man with short spiky black hair, a confident smirk, and a dark navy jacket faces right. His large hand reaches across frame and rests firmly on the chest or shoulder of another male figure on the right side of frame, whose back is mostly turned to camera. In the center background, a third young man with a short rounded bowl-cut hairstyle and a serious, narrow-eyed expression stares directly forward at the viewer with a calm but subtly threatening gaze, framed between the two foreground figures. The overall mood is tense and confrontational. Retro shōnen manga aesthetic, muted olive greens, navy blues, and warm skin tones, soft unfocused painted background, 4:3 aspect ratio."
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: rope_warp
+    grid:
+      rows: freq_scale
+    params:
+      freq_scale: [0.1, 0.25, 0.5, 2.0, 4.0, 5.0]

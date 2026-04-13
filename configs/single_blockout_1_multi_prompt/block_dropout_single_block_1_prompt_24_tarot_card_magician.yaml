@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An extraordinarily detailed hand-illustrated Tarot card for the Major Arcana number one The Magician rendered in a richly ornamented style that synthesizes the Rider-Waite-Smith tradition with Art Nouveau decorative sensibility, the central figure is a young androgynous sorcerer robed in flowing white with a scarlet cloak lined with serpent-eating-serpent ouroboros symbolism, one hand raised pointing a wand toward the heavens while the other gestures downward channeling cosmic energy, before them a wooden table bears the four elemental tools of the Tarot suits arranged with ceremonial precision, the figure's head is crowned by a lemniscate infinity symbol floating in glowing golden light, the background is a garden of white lilies and red roses arranged in formal symmetrical patterns, the border frame is an elaborate architectural Art Nouveau composition of carved stone with knotwork, astronomical symbols and esoteric geometric diagrams, the entire illustration is painted in jewel-toned gouache with heavy gold gouache highlights on a deep midnight blue ground"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A deeply moving and expressive oil painting portrait of an elderly woman in her late eighties, her face an extraordinary landscape of deep character-filled wrinkles etched by decades of laughter, hardship and accumulated wisdom, her loose silver-white hair swept casually back with a few wayward strands falling softly around her temples and cheeks, warm amber-hazel eyes catch the light with quiet intelligence and a deep reservoir of gentle humor, she wears a slow unfurling smile that implies an entire lifetime of untold stories waiting to be heard, soft directional natural window light enters from the upper left illuminating her face warmly and casting the opposite side in deep amber shadow with subtle reflected fill, painted with the mastery and gravity of Dutch Golden Age portraiture, thick confident impasto brushwork visible in the highlights, rich earthy ochre and umber tones, extraordinary skin texture and subsurface scattering quality"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

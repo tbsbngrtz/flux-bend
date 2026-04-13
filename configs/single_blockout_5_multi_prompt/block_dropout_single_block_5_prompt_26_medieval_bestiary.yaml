@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A spectacular double-page spread from a fictional medieval bestiary manuscript rendered with complete historical authenticity, the left page depicts a magnificent unicorn in the characteristic flattened heraldic pose of Romanesque manuscript illumination, its single spiral horn and flowing mane rendered in pure white over a deep vermilion ground decorated with a repeating pattern of golden quatrefoil flowers, the right page shows a fearsome basilisk serpent king with multiple crowned heads and wings of a wyvern, its lethal gaze indicated by stylized red flames emanating from its eyes, the surrounding margins of both pages overflow with a dense illuminated border system of interlaced Celtic knotwork in gold leaf, blue and green alternating bands, tiny human and hybrid creature faces peering from the foliage, the accompanying Latin text is written in authentic Caroline minuscule script in iron gall brown ink, each capital letter is an elaborate historiated initial containing its own tiny narrative scene"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

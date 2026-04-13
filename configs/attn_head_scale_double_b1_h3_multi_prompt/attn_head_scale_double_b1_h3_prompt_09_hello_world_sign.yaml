@@ -1,0 +1,19 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A hand-crafted wooden sign with a gently arched top and pleasingly weathered rounded corners, the letters HELLO WORLD carved deep into the grain and hand-painted in warm cream white with subtle drop-shadow brushstrokes giving them soft three-dimensional weight, the natural pine wood shows beautiful amber grain patterns and small decorative knots, the surface has a light wash of age and sun bleaching, the sign is casually propped against the rough-hewn stone wall of an old Provencal farmhouse, the entire scene is bathed in the rich golden hour light of a late summer afternoon creating long warm shadow striations across the uneven cobblestone path in the foreground, wild climbing roses and cascading wisteria frame the composition at the edges, a softly blurred pastoral landscape of gently rolling green hills dotted with lavender fields extends to the horizon behind the farmhouse, warm documentary photography aesthetic with natural color rendition"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: attn_head_scale
+    grid:
+      rows: strength
+    params:
+      block_type: double
+      stream: both
+      start_block: 1
+      end_block: 1
+      heads: [[3]]
+      strength: [0.3, 0.5, 0.7, 1.0, 1.3, 1.5, 1.7, 2.0, 2.5, 3.0]

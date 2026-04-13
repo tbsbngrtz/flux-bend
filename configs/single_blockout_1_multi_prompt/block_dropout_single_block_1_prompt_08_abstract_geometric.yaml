@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A sophisticated and visually arresting minimalist abstract composition constructed from overlapping and intersecting geometric primitive forms including perfect circles, sharp rectangles, acute triangles, wide trapezoids and irregular octagons arranged in a dynamic asymmetric balance that creates movement across the picture plane without chaos, the carefully curated color palette progresses through warm earth tones including burnt sienna, terracotta, goldenrod, dusty rose, soft cream and muted sand, all forms are rendered in flat bold fills with occasional semi-transparent overlapping layers that generate new intermediate tones and visual depth at intersection zones, sparse hairline rules in slightly darker complementary tones subdivide certain shapes creating internal rhythm, generous white negative space grounds and anchors the composition breathing air through the geometry, deeply influenced by the visual principles of Bauhaus masters Albers and Moholy-Nagy, high-quality print vector aesthetic"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

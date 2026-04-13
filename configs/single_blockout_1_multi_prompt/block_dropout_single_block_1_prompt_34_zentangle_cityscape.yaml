@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An extraordinarily intricate black and white pen-and-ink illustration depicting an imaginary dense city skyline rendered entirely using the Zentangle and fine-line illustration techniques of Johanna Basford and Kerby Rosanes, every single building surface from ground to rooftop is covered in a different distinct pattern vocabulary including dense crosshatching, flowing organic paisley forms, precise geometric tessellations, spiraling nautilus shell patterns, circuit board traces, honeycomb grids, flowing water ripple patterns and crystalline snowflake lattices, the buildings themselves range from Art Deco skyscrapers to Islamic-influenced domed towers to Gothic spires, all packed together in impossible density, tiny illustrated vignettes hide within the patterns including birds in flight, a cat sitting on a windowsill, hot air balloons, and a small dragon perched on a radio antenna, the sky above is filled with an intricate mandala sun and star-patterned clouds, ultra-fine ink work suitable for high-resolution printing with obsessive attention to linework quality"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[1]]
+      scale: 0.0
+      target: all

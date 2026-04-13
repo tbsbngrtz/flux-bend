@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "A lone grey timber wolf of powerful and magnificent build standing at the very edge of a sheer dramatic rocky cliff face, its thick dense winter coat rendered in careful brushwork, its powerful neck muscles straining as its head is thrown completely back in a prolonged howl that seems to make the night air vibrate, directly behind the wolf an enormous perfectly round full moon occupies a substantial third of the entire composition, its crater-pocked surface rendered in fine detail, the surrounding night sky is an impossibly clear deep sapphire blue absolutely packed with a luminous dense star field and the glowing sweep of the Milky Way core visible as a dense band of starlight, the moonlight picks out every detail of the wolf's fur and the ancient lichen-patched granite rock beneath its paws, dark pine forest silhouettes fill the lower foreground corners, shreds of thin mist cling to the shadowed valley far below, dramatic digital painting with exceptional atmospheric depth and luminosity"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[4]]
+      scale: 0.0
+      target: all

@@ -1,0 +1,31 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "a ceramic vase on a wooden table, soft window light"
+seed: 42
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  # Pipeline: attn_head_scale + mlp_low_rank
+  # Cartesian product across stages: strength × alpha = 3×3 = 9 jobs
+  # Order matters: mlp_low_rank sees attn_head_scale's changes.
+  - pipeline:
+      - mode: attn_head_scale
+        params:
+          heads: [0,1]
+          strength: [0.2, 0.5, 1.5]
+          block_type: double
+          start_block: 0
+          end_block: 4
+      - mode: mlp_low_rank
+        params:
+          alpha: [1.0, 3.0, 5.0]
+          seed: 42
+          block_type: double
+          start_block: 0
+          end_block: 4
+          rank: 8
+    grid:
+      rows: attn_head_scale.strength
+      cols: mlp_low_rank.alpha

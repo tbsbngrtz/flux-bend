@@ -1,0 +1,17 @@
+model: black-forest-labs/FLUX.2-klein-base-4B
+prompt: "An extraordinary Persian miniature painting composition in the classical Safavid court style of the sixteenth-century Tabriz school depicting a legendary scene from the Shahnameh of Ferdowsi showing the hero Rustam in combat with the fearsome demon-king Div-e Sepid in a mountainous landscape, the painting uses the characteristic Persian miniature conventions of elevated perspective, intensely saturated jewel-tone colors applied in flat washes with no Western-style atmospheric recession, elaborate arabesque patterned textile surfaces on every garment, architecture and ground plane, Rustam is dressed in magnificently patterned armor of gold and lapis with a helmet of feathered plumes, every edge and surface enriched with khatai vine scrollwork, the rocky mountains in the background are rendered as stacked rounded forms in grey and green, a paradise garden of flowering trees is visible through an archway, the corners of the composition are filled with dense clouds in the traditional Chinese-influenced paisley form, the painting is surrounded by an exquisite illuminated border of gold arabesque on cobalt"
+seed: 12345
+inference:
+  steps: 50
+  guidance_scale: 4.0
+  width: 1024
+  height: 1024
+sweeps:
+  - mode: block_dropout
+    grid:
+      rows: block_indices
+    params:
+      block_type: single
+      block_indices: [[5]]
+      scale: 0.0
+      target: all

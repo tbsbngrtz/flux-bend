@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv --version)",
+      "Bash(uv python:*)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total --format=csv,noheader)",
+      "Bash(python -c \"import ast; ast.parse\\(open\\(''src/flux_bend/metadata.py''\\).read\\(\\)\\); print\\(''OK''\\)\")"
+    ]
+  }
+}
